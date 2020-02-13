@@ -1,0 +1,22 @@
+heartbeat.monitors:
+- type: http
+  schedule: '@every 10s'
+  urls:
+    - https://www.geektechstuff.com
+  check.response.status: 200
+
+# ICMP is pinging
+# - type: icmp
+#   schedule: '@every 5s'
+#   hosts:
+#     - elasticsearch
+#     - kibana
+
+# processors:
+# - add_cloud_metadata: ~
+
+# Currently set to host.docker.internal whilst playing with ELK in containers
+output.elasticsearch:
+  hosts: 'host.docker.internal:9200'
+  #username: '${ELASTICSEARCH_USERNAME:}'
+  #password: '${ELASTICSEARCH_PASSWORD:}'
